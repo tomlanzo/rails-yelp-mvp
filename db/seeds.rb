@@ -32,17 +32,14 @@ restaurants_attributes = [
   }
 ]
 
-puts 'Creating reviews...'
-reviews_attributes = [
-  {
-    content: "super bon restaurant",
-    rating: 4,
-    restaurant_id: 5
-  }
-]
-
 Restaurant.create!(restaurants_attributes)
-Review.create!(reviews_attributes)
+
+
+good = Review.new(content: "chouette !!", rating: 5)
+epicure = Restaurant.first
+good.restaurant = epicure
+good.save
+
 puts 'Finished!'
 
 
